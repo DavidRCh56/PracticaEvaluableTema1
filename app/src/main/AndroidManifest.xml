@@ -20,9 +20,6 @@
             android:name=".LlamadaActivity"
             android:exported="false" />
         <activity
-            android:name=".ConfiguracionActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -33,4 +30,5 @@
         </activity>
     </application>
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
 </manifest>

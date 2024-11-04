@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
+        val enlace = "https://pudding.cool/2021/04/music-bubble/?_hsenc=p2ANqtz-9alhO5RmWjhUJm7GydzzEAshTE-eoCfYfRYFVsI_MfKO5oHU0_nR-6syloGKaGIL4sUiNDkzaAEm25fs7JiL-I9-DLIw&_hsmi=132279266&utm_campaign=ideou-campaign-newsletter-2020-09-01&utm_content=132279264&utm_medium=email&utm_source=hs_email"
         val btnLlamada = findViewById<Button>(R.id.btnLlamada)
         val btnUrl = findViewById<Button>(R.id.btnUrl)
         val btnAlarma = findViewById<Button>(R.id.btnAlarma)
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnUrl.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.miweb.com"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(enlace))
             startActivity(intent)
         }
 
@@ -44,8 +45,22 @@ class MainActivity : AppCompatActivity() {
                 putExtra(AlarmClock.EXTRA_HOUR, 0)
                 putExtra(AlarmClock.EXTRA_MINUTES, 2)
             }
-            startActivity(intent)
+
+            // Verifica si hay alguna aplicación que pueda manejar la intención
+            if (intent.resolveActivity(packageManager) != null) {
+                try {
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    // Manejo de excepciones si algo sale mal
+                    Toast.makeText(this, "Error al abrir la aplicación de alarmas", Toast.LENGTH_SHORT).show()
+                    e.printStackTrace() // Esto te ayudará a depurar el error
+                }
+            } else {
+                // Manejar el caso en que no hay aplicaciones de alarma
+                Toast.makeText(this, "No hay aplicaciones de alarma disponibles", Toast.LENGTH_SHORT).show()
+            }
         }
+
 
         btnPersonalizado.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND).apply {
