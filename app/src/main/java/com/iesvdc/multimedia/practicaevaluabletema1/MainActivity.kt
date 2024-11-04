@@ -9,6 +9,7 @@ import android.provider.AlarmClock
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.iesvdc.multimedia.practicaevaluabletema1.LlamadaActivity
@@ -18,6 +19,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        enableEdgeToEdge()
+
         setContentView(R.layout.activity_main)
 
         val btnLlamada = findViewById<Button>(R.id.btnLlamada)

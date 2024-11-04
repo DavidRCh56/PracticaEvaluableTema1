@@ -6,15 +6,47 @@
     android:gravity="center"
     android:padding="16dp">
 
+    <!-- Título de la pantalla -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Realizar Llamada"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
 
+    <!-- Contenedor del EditText y el ImageView -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:layout_marginBottom="20dp">
+
+        <!-- Campo de entrada del número de teléfono -->
+        <EditText
+            android:id="@+id/editTextTelefono"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Número de teléfono"
+            android:inputType="phone"
+            android:enabled="false" />
+
+        <!-- Botón para habilitar la edición del número -->
+        <ImageView
+            android:id="@+id/imgEditTelefono"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/lapiz" />
+    </LinearLayout>
+
+    <!-- Botón para realizar la llamada -->
     <Button
         android:id="@+id/btnRealizarLlamada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Llamar" />
+        android:text="Llamar"
+        android:padding="16dp" />
 </LinearLayout>

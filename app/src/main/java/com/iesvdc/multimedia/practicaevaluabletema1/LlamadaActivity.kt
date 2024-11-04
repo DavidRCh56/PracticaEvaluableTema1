@@ -19,6 +19,9 @@ class LlamadaActivity : AppCompatActivity() {
     private lateinit var editTextTelefono: EditText
     private lateinit var imgEditTelefono: ImageView
 
+    // Variable para almacenar el número a llamar
+    private var numeroTelefono: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_llamada)
@@ -51,6 +54,9 @@ class LlamadaActivity : AppCompatActivity() {
                 // Guardar el número de teléfono para futuras aperturas de la aplicación
                 sharedPreferences.edit().putString("numeroTelefono", numero).apply()
 
+                // Almacenar el número en la variable para usarlo si se necesita en el permiso
+                numeroTelefono = numero
+
                 // Realizar la llamada
                 realizarLlamada(numero)
             }
@@ -69,7 +75,8 @@ class LlamadaActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 1 && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            realizarLlamada()
+            // Usar el número almacenado en numeroTelefono si se ha concedido el permiso
+            numeroTelefono?.let { realizarLlamada(it) }
         } else {
             Toast.makeText(this, "Permiso de llamada no concedido", Toast.LENGTH_SHORT).show()
         }
