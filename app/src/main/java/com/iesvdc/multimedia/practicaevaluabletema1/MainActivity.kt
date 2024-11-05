@@ -40,34 +40,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnAlarma.setOnClickListener {
-            val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
-                putExtra(AlarmClock.EXTRA_MESSAGE, "Mi Alarma")
-                putExtra(AlarmClock.EXTRA_HOUR, 0)
-                putExtra(AlarmClock.EXTRA_MINUTES, 2)
-            }
-
-            // Verifica si hay alguna aplicación que pueda manejar la intención
-            if (intent.resolveActivity(packageManager) != null) {
-                try {
-                    startActivity(intent)
-                } catch (e: Exception) {
-                    // Manejo de excepciones si algo sale mal
-                    Toast.makeText(this, "Error al abrir la aplicación de alarmas", Toast.LENGTH_SHORT).show()
-                    e.printStackTrace() // Esto te ayudará a depurar el error
-                }
-            } else {
-                // Manejar el caso en que no hay aplicaciones de alarma
-                Toast.makeText(this, "No hay aplicaciones de alarma disponibles", Toast.LENGTH_SHORT).show()
-            }
+            startActivity(Intent(this, AlarmaActivity::class.java))
         }
 
-
-        btnPersonalizado.setOnClickListener {
+        /*btnPersonalizado.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
                 putExtra(Intent.EXTRA_TEXT, "Texto de ejemplo")
             }
             startActivity(Intent.createChooser(intent, "Enviar texto"))
+        }*/
+        btnPersonalizado.setOnClickListener {
+            // Abre MensajeActivity
+            val intent = Intent(this, MensajeActivity::class.java)
+            startActivity(intent)
         }
     }
 }

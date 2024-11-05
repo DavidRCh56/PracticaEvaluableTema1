@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 
@@ -25,6 +26,8 @@ class LlamadaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_llamada)
+
+        enableEdgeToEdge()
 
         // Inicializar SharedPreferences
         sharedPreferences = getSharedPreferences("MiAppPrefs", MODE_PRIVATE)
@@ -60,6 +63,10 @@ class LlamadaActivity : AppCompatActivity() {
                 // Realizar la llamada
                 realizarLlamada(numero)
             }
+        }
+        val btnBackToMain = findViewById<Button>(R.id.btnVolverAlMain)
+        btnBackToMain.setOnClickListener {
+            finish() // Termina esta actividad y regresa a MainActivity
         }
     }
 

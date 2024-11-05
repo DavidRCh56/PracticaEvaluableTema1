@@ -48,14 +48,19 @@
         android:id="@+id/btnRealizarLlamada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Llamar" />
+        android:text="Realizar Llamada"
+        android:textSize="18sp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp" />
 
     <Button
-        android:id="@+id/btnRetorno"
+        android:id="@+id/btnVolverAlMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Volver" />
+        android:text="Volver a la página principal"
+        android:textSize="18sp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"/>
 
 </LinearLayout>
