@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.iesvdc.multimedia.practicaevaluabletema1"
-        minSdk = 30
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

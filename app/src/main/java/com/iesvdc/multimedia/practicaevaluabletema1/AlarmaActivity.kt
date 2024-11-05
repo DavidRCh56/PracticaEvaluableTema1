@@ -6,15 +6,14 @@ import android.provider.AlarmClock
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.enableEdgeToEdge
 
 class AlarmaActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alarma)
-
         enableEdgeToEdge()
 
         val messageInput = findViewById<EditText>(R.id.editTextMessage)
@@ -36,7 +35,7 @@ class AlarmaActivity : AppCompatActivity() {
         }
 
         btnBackToMain.setOnClickListener {
-            finish() // Termina la actividad actual y regresa a MainActivity
+            finish()
         }
     }
 

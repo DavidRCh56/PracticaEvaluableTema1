@@ -1,30 +1,20 @@
 package com.iesvdc.multimedia.practicaevaluabletema1
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.provider.AlarmClock
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.enableEdgeToEdge
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import com.iesvdc.multimedia.practicaevaluabletema1.LlamadaActivity
-import com.iesvdc.multimedia.practicaevaluabletema1.R
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         enableEdgeToEdge()
-
         setContentView(R.layout.activity_main)
 
-        val enlace = "https://pudding.cool/2021/04/music-bubble/?_hsenc=p2ANqtz-9alhO5RmWjhUJm7GydzzEAshTE-eoCfYfRYFVsI_MfKO5oHU0_nR-6syloGKaGIL4sUiNDkzaAEm25fs7JiL-I9-DLIw&_hsmi=132279266&utm_campaign=ideou-campaign-newsletter-2020-09-01&utm_content=132279264&utm_medium=email&utm_source=hs_email"
+        val enlace = "https://pudding.cool/2021/04/music-bubble/"
         val btnLlamada = findViewById<Button>(R.id.btnLlamada)
         val btnUrl = findViewById<Button>(R.id.btnUrl)
         val btnAlarma = findViewById<Button>(R.id.btnAlarma)
@@ -43,15 +33,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, AlarmaActivity::class.java))
         }
 
-        /*btnPersonalizado.setOnClickListener {
-            val intent = Intent(Intent.ACTION_SEND).apply {
-                type = "text/plain"
-                putExtra(Intent.EXTRA_TEXT, "Texto de ejemplo")
-            }
-            startActivity(Intent.createChooser(intent, "Enviar texto"))
-        }*/
         btnPersonalizado.setOnClickListener {
-            // Abre MensajeActivity
             val intent = Intent(this, MensajeActivity::class.java)
             startActivity(intent)
         }
