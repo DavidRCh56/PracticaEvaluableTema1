@@ -23,7 +23,7 @@ El proyecto está organizado en varias actividades principales:
 ## Requisitos
 
 - Android SDK (versión mínima recomendada: 21)
-  ´´´bash
+  ```bash
   defaultConfig {
         applicationId = "com.iesvdc.multimedia.practicaevaluabletema1"
         minSdk = 30
@@ -33,18 +33,18 @@ El proyecto está organizado en varias actividades principales:
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-  ´´´
+  ```
 - Opciones de kotlin
-  ´´´bash
+  ```bash
   kotlinOptions {
      jvmTarget = "1.8"
   }
-  ´´´
+  ```
 - Permisos para llamadas telefónicas y acceso a la alarma.
-  ´´´bash
+  ```bash
      <uses-permission android:name="android.permission.CALL_PHONE" />
      <uses-permission android:name="android.permission.SET_ALARM" />
-  ´´´
+  ```
 
 ## Configuración del Proyecto
 
