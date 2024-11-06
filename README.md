@@ -43,7 +43,7 @@ El proyecto está organizado en varias actividades principales:
 - Permisos para llamadas telefónicas y acceso a la alarma.
   ```bash
      <uses-permission android:name="android.permission.CALL_PHONE" />
-     <uses-permission android:name="android.permission.SET_ALARM" />
+     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
   ```
 
 ## Configuración del Proyecto
